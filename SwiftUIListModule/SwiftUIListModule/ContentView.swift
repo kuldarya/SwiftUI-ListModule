@@ -8,9 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private(set) var viewModel: ViewModel = .init()
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List(viewModel.employees) { employee in
+                EmployeeRow(employee: employee)
+            }
+            .listStyle(PlainListStyle())
+            .padding(.top, 8)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Employees").font(.headline)
+                }
+            }
+        }
+    }
+}
+
+struct EmployeeRow: View {
+    var employee: Employee
+
+    var body: some View {
+        Text(employee.occupation)
     }
 }
 

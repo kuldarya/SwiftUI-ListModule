@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B2F3C4628324EF600D76E4D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2F3C4528324EF500D76E4D /* ViewModel.swift */; };
+		0B5F77CF282E725800D85A2C /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5F77CE282E725800D85A2C /* Employee.swift */; };
 		0BD65A9F282E567C0078F78A /* SwiftUIListModuleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD65A9E282E567C0078F78A /* SwiftUIListModuleApp.swift */; };
 		0BD65AA1282E567C0078F78A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD65AA0282E567C0078F78A /* ContentView.swift */; };
 		0BD65AA3282E567E0078F78A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BD65AA2282E567E0078F78A /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B2F3C4528324EF500D76E4D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		0B5F77CE282E725800D85A2C /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		0BD65A9B282E567C0078F78A /* SwiftUIListModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIListModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BD65A9E282E567C0078F78A /* SwiftUIListModuleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIListModuleApp.swift; sourceTree = "<group>"; };
 		0BD65AA0282E567C0078F78A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				0BD65A9E282E567C0078F78A /* SwiftUIListModuleApp.swift */,
+				0B5F77CE282E725800D85A2C /* Employee.swift */,
+				0B2F3C4528324EF500D76E4D /* ViewModel.swift */,
 				0BD65AA0282E567C0078F78A /* ContentView.swift */,
 				0BD65AA2282E567E0078F78A /* Assets.xcassets */,
 				0BD65AA4282E567E0078F78A /* Preview Content */,
@@ -258,6 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BD65AA1282E567C0078F78A /* ContentView.swift in Sources */,
+				0B5F77CF282E725800D85A2C /* Employee.swift in Sources */,
+				0B2F3C4628324EF600D76E4D /* ViewModel.swift in Sources */,
 				0BD65A9F282E567C0078F78A /* SwiftUIListModuleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
