@@ -23,6 +23,20 @@ struct ContentView: View {
                     Text("Employees").font(.headline)
                 }
             }
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Button(action: {
+                        print("Add row")
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                    Button(action: {
+                        print("Delete row")
+                    }) {
+                        Image(systemName: "trash")
+                    }
+                }
+            }
         }
     }
 }
