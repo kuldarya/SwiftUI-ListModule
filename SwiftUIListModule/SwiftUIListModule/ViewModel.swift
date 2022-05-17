@@ -9,6 +9,7 @@ import Combine
 
 final class ViewModel: ObservableObject {
     @Published var selectedIndex: Int?
+    @Published var newEmployee: String = ""
 
     var employees: [Employee] = [
         Employee(occupation: "iOS Developer"),
@@ -24,5 +25,11 @@ final class ViewModel: ObservableObject {
         newArray.remove(at: index)
         selectedIndex = nil
         employees = newArray
+    }
+
+    func addRow() {
+        if !newEmployee.isEmpty {
+            employees.append(Employee(occupation: newEmployee))
+        }
     }
 }

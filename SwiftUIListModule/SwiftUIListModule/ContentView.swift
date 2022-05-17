@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel: ViewModel = .init()
-    @State private var showingSheet = false
-    @State private var newEmployee = ""
+    @State private var isPresented: Bool = false
 
     var body: some View {
         NavigationView {
@@ -36,7 +35,7 @@ struct ContentView: View {
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 Button(action: {
-                    showingSheet = true
+                    isPresented = true
                 }) {
                     Image(systemName: "plus")
                 }
@@ -46,6 +45,11 @@ struct ContentView: View {
                 }) {
                     Image(systemName: "trash")
                 }
+            }
+        }
+        .sheet(isPresented: $isPresented) {
+            SheetView(newEmployee: $viewModel.newEmployee) {
+                viewModel.addRow()
             }
         }
     }
@@ -62,6 +66,7 @@ struct EmployeeRow: View {
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var newEmployee: String
+    var action: () -> ()
 
     var body: some View {
         NavigationView {
@@ -76,7 +81,8 @@ struct SheetView: View {
             .navigationBarItems(
                 leading:
                     Button("Done") {
-                       // {} from sheet
+                        action()
+                        newEmployee = ""
                         dismiss()
                     },
                 trailing:
