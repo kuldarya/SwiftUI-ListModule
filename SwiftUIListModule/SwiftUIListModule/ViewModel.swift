@@ -8,7 +8,9 @@
 import Combine
 
 final class ViewModel: ObservableObject {
-    let employees: [Employee] = [
+    @Published var selectedIndex: Int?
+
+    var employees: [Employee] = [
         Employee(occupation: "iOS Developer"),
         Employee(occupation: "Accountant"),
         Employee(occupation: "Support Manager"),
@@ -16,4 +18,11 @@ final class ViewModel: ObservableObject {
         Employee(occupation: "Project Manager")
     ]
 
+    func removeRow() {
+        guard let index = selectedIndex, index >= 0 else { return }
+        var newArray = employees
+        newArray.remove(at: index)
+        selectedIndex = nil
+        employees = newArray
+    }
 }
