@@ -48,8 +48,8 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isPresented) {
-            SheetView(newEmployee: $viewModel.newEmployee) {
-                viewModel.addRow()
+            SheetView { newvalue in
+                viewModel.addRow(newEmployee: newvalue)
             }
         }
     }
@@ -65,8 +65,8 @@ struct EmployeeRow: View {
 
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
-    @Binding var newEmployee: String
-    var action: () -> ()
+    @State private var newEmployee: String = ""
+    var action: (String) -> ()
 
     var body: some View {
         NavigationView {
@@ -81,7 +81,7 @@ struct SheetView: View {
             .navigationBarItems(
                 leading:
                     Button("Done") {
-                        action()
+                        action(newEmployee)
                         newEmployee = ""
                         dismiss()
                     },

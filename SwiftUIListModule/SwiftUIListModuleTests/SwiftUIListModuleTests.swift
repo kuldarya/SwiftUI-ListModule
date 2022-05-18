@@ -9,28 +9,42 @@ import XCTest
 @testable import SwiftUIListModule
 
 class SwiftUIListModuleTests: XCTestCase {
+    var sut: ViewModel!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut = ViewModel()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testViewModelAddsNewRowCorrectly() {
+        //Given
+        let array = [
+            Employee(occupation: "iOS Developer"),
+            Employee(occupation: "Accountant"),
+            Employee(occupation: "Support Manager")
+        ]
+        sut.employees = array
+
+        //Action
+        sut.addRow(newEmployee: "ios")
+
+        //Assert
+        XCTAssertNotEqual(array, sut.employees)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    func testViewModelDeletesRowCorrectly() {
 
+
+        
+
+    }
+}
+
+extension Employee: Equatable {
+    public static func == (lhs: Employee, rhs: Employee) -> Bool {
+        lhs.occupation == rhs.occupation
+    }
 }
